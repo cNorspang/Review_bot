@@ -50,10 +50,10 @@ def Review_bot(r):
                     print('The IMDb Rating of ' + str(imdb_result) + ' is: ' + str(imdb_rating))
                 except KeyError:
                     print ('Key Error found, replying')
-                    comment.reply('Please specify the exact title of your the movie you\'re seaching for, instead of using numbers')
+                    comment.reply('Please specify the exact title of the movie you\'re seaching for, instead of using numbers')
                     print('Comment Id is ' + comment.id)
                     print('Noting Comment Id')
-                    Review_Comments = open(r'C:\Users\root\Desktop\Projects\Review Bot\Review_comments.txt', 'a')
+                    Review_Comments = open(r'.\Review_comments.txt', 'a')
                     Review_Comments.write(comment.id)
                     Review_Comments.write('\n')
                     Review_Comments.close()
