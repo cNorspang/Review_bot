@@ -49,7 +49,7 @@ def Review_bot(r):
                     imdb_rating = imdb_result['rating']
                     print('The IMDb Rating of ' + str(imdb_result) + ' is: ' + str(imdb_rating))
                 except KeyError:
-                    print ('Key Error found, replying')
+                    print('Key Error found, replying')
                     comment.reply('Please specify the exact title of the movie you\'re seaching for, instead of using numbers')
                     print('Comment Id is ' + comment.id)
                     print('Noting Comment Id')
@@ -65,11 +65,11 @@ def Review_bot(r):
                 movie_request = movie_request.lower()
                 print(movie_request)
                 Metascore = requests.get("https://api-marcalencc-metacritic-v1.p.mashape.com/movie/" + movie_request,
-                  headers={
-                    "X-Mashape-Key": key,
-                    "X-Mashape-Host": host
-                  }
-                )
+                                         headers={
+                                            "X-Mashape-Key": key,
+                                            "X-Mashape-Host": host
+                                                }
+                                         )
 
                 Metascore = Metascore.json()
                 Metascore = Metascore[0]
