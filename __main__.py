@@ -33,7 +33,11 @@ def Review_bot(r):
     print('Seaching for comments with !Review')
 
     for comment in r.subreddit(subreddits).comments(limit=25):
+<<<<<<< HEAD
         reviewComments = open(r'C:\Users\root\Desktop\Projects\Review Bot\Review_comments.txt', 'r')
+=======
+        reviewComments = open(r'.\Review_comments.txt', 'r')
+>>>>>>> e74b04014fa30e149a008e3fd7f16f8a9194fb0f
         if comment.body.startswith('!Review') and comment.id not in reviewComments.read():
             reviewComments.close()
             try:
@@ -49,11 +53,19 @@ def Review_bot(r):
                     imdb_rating = imdb_result['rating']
                     print('The IMDb Rating of ' + str(imdb_result) + ' is: ' + str(imdb_rating))
                 except KeyError:
+<<<<<<< HEAD
                     print ('Key Error found, replying')
                     comment.reply('Please specify the exact title of your the movie you\'re seaching for, instead of using numbers')
                     print('Comment Id is ' + comment.id)
                     print('Noting Comment Id')
                     Review_Comments = open(r'C:\Users\root\Desktop\Projects\Review Bot\Review_comments.txt', 'a')
+=======
+                    print('Key Error found, replying')
+                    comment.reply('Please specify the exact title of the movie you\'re seaching for, instead of using numbers')
+                    print('Comment Id is ' + comment.id)
+                    print('Noting Comment Id')
+                    Review_Comments = open(r'.\Review_comments.txt', 'a')
+>>>>>>> e74b04014fa30e149a008e3fd7f16f8a9194fb0f
                     Review_Comments.write(comment.id)
                     Review_Comments.write('\n')
                     Review_Comments.close()
@@ -65,11 +77,19 @@ def Review_bot(r):
                 movie_request = movie_request.lower()
                 print(movie_request)
                 Metascore = requests.get("https://api-marcalencc-metacritic-v1.p.mashape.com/movie/" + movie_request,
+<<<<<<< HEAD
                   headers={
                     "X-Mashape-Key": key,
                     "X-Mashape-Host": host
                   }
                 )
+=======
+                                         headers={
+                                            "X-Mashape-Key": key,
+                                            "X-Mashape-Host": host
+                                                }
+                                         )
+>>>>>>> e74b04014fa30e149a008e3fd7f16f8a9194fb0f
 
                 Metascore = Metascore.json()
                 Metascore = Metascore[0]
@@ -109,7 +129,11 @@ def Review_bot(r):
             # -------------------------------------------------Exception----------------------------------------------------- #
             print('Comment Id is ' + comment.id)
             print('Noting Comment Id')
+<<<<<<< HEAD
             Review_Comments = open(r'C:\Users\root\Desktop\Projects\Review Bot\Review_comments.txt', 'a')
+=======
+            Review_Comments = open(r'.\Review_comments.txt', 'a')
+>>>>>>> e74b04014fa30e149a008e3fd7f16f8a9194fb0f
             Review_Comments.write(comment.id)
             Review_Comments.write('\n')
             Review_Comments.close()
